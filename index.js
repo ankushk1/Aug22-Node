@@ -2,9 +2,13 @@ const express = require("express");
 const app = express();
 const port = 8000;
 const bodyParser = require("body-parser");
+const mongoose = require('./config/mongoose')
+const userRoutes = require('./router/userRoutes')
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/user', userRoutes)
 
 // app.get("/home", (req, res) => {
 //   console.log(req.body);
