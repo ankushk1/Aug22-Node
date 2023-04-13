@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const Product = require("../model/Product");
 
 exports.validateJWT = async (req, res, next) => {
   try {
@@ -13,12 +14,11 @@ exports.validateJWT = async (req, res, next) => {
         return res.status(400).json({ err });
       }
 
-      console.log(decoded);
-
-      req.body.userId = decoded._id
+      req.body.userId = decoded._id;
       next();
     });
   } catch (err) {
     return res.status(500).json({ err });
   }
 };
+

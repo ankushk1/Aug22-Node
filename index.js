@@ -4,11 +4,13 @@ const port = 8000;
 const bodyParser = require("body-parser");
 const mongoose = require('./config/mongoose')
 const userRoutes = require('./router/userRoutes')
+const productRoutes = require('./router/productRoutes')
 
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/user', userRoutes)
+app.use('/product', productRoutes)
 
 // app.get("/home", (req, res) => {
 //   console.log(req.body);

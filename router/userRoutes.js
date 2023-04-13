@@ -6,8 +6,8 @@ const { validateJWT } = require("../middleware/jwt");
 router.post("/signup", signup);
 router.post("/signin", signin);
 
-router.get("/test", validateJWT, () => {
-  console.log("test");
+router.get("/test", validateJWT, (req) => {
+  
 });
 
 module.exports = router;
