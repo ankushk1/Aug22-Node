@@ -1,5 +1,4 @@
 const jwt = require("jsonwebtoken");
-const Product = require("../model/Product");
 
 exports.validateJWT = async (req, res, next) => {
   try {
@@ -9,7 +8,7 @@ exports.validateJWT = async (req, res, next) => {
       return res.status(400).json({ message: "JWT is required" });
     }
 
-    jwt.verify(token, "secret", function (err, decoded) {
+    jwt.verify(token, process.env.JWT_SECRET, function (err, decoded) {
       if (err) {
         return res.status(400).json({ err });
       }

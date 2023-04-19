@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const mongoose = require('./config/mongoose')
 const userRoutes = require('./router/userRoutes')
 const productRoutes = require('./router/productRoutes')
-
+require('dotenv').config()
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
