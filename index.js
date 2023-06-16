@@ -5,8 +5,12 @@ const bodyParser = require("body-parser");
 const mongoose = require('./config/mongoose')
 const userRoutes = require('./router/userRoutes')
 const productRoutes = require('./router/productRoutes')
+const cors = require("cors")
 require('dotenv').config()
 
+app.use(cors({
+  origin: "http://localhost:3000"
+}))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/user', userRoutes)
